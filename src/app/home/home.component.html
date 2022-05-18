@@ -1,0 +1,28 @@
+<div class="preview">
+  <div class="selector">
+    <div id="colors" class="colors">
+      <div class="colors__texts">
+        <h1>This is a mug</h1>
+        <p class="colors__text">This is a mug. Don't be intimidated by it's beauty. Afterall, it's just a mug. Go on then, try those colors.</p>
+        <span>Still reading? Came on, try those colors!</span>
+        <span class="colors__second-text">Ok man, really. Just do it.</span>
+        <!-- <p>Choose a color:</p> -->
+      </div>
+      <div class="colors__buttons">
+        <button
+          *ngFor="let color of colors"
+          (click)="selectedColor = color"
+          [style.background]="lightenDarkenColor(color, 70)"
+          [ngClass]="{
+            'color-button': true,
+            'color-button--selected': color === selectedColor
+          }"
+        ></button>
+      </div>
+    </div>
+
+    <div class="mug-wrapper">
+      <app-mug *ngIf="renderCanvas" [height]="height$ | async" [color]="selectedColor"></app-mug>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+h1 {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.preview {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fafafa;
+  background-color: #171a1c;
+}
+
+.selector {
+  background-color: #1a1a1a;
+  height: 600px;
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 4px 4px 10px #00000036;
+  padding: 40px;
+  padding-right: 4px;
+  margin: 80px;
+}
+
+.colors {
+  width: 50%;
+  padding-right: 20px;
+
+  &__text {
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+
+  &__second-text {
+    font-size: 12px;
+    margin-bottom: 30px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.color-button {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  box-shadow: 4px 4px 10px #00000036;
+
+  &--selected {
+    border: 3px solid #ffffff;
+  }
+}
+
+.mug-wrapper {
+  height: 100%;
+  width: 50%;
+}
+
+@media (max-width: 880px) {
+  .mug-wrapper {
+    height: 80%;
+  }
+
+  .colors {
+    &__text {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  .mug-wrapper {
+    height: 100%;
+    width: 100%;
+  }
+
+  .selector {
+    flex-direction: column;
+    padding: 20px;
+    margin: 0;
+    height: 100%;
+    justify-content: start;
+  }
+
+  .colors {
+    width: 100%;
+    display: flex;
+    padding: 0;
+
+    &__texts {
+      width: 60%;
+      margin-right: 18px;
+    }
+  }
+
+  .colors {
+    &__buttons {
+      width: 40%;
+      display: grid;
+      align-items: flex-start;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+
+      .color-button {
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .mug-wrapper {
+    height: 100%;
+  }
+
+  .selector {
+    background-color: #171a1c;
+    border-radius: 0;
+  }
+
+  .colors {
+    display: block;
+    
+    &__texts {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &__second-text {
+      margin-bottom: 20px;
+    }
+
+    &__buttons {
+      width: 100%;
+      display: flex;
+      gap: 0;
+
+      .color-button {
+        margin-right: 24px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
