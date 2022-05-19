@@ -37,13 +37,29 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     const documentWidth = window.innerWidth;
-    if (documentWidth < 680) {
+    const documentHeight = window.innerHeight;
+    // ! If mobile.
+    if ((documentWidth < 680) || (documentWidth < 900 && documentHeight < 500)) {
       const documentHeight = window.innerHeight;
       const colors = document.getElementById('colors');
+      const selector = document.getElementById('selector');
       const colorsHeight = colors?.clientHeight;
+      const selectorHeight = selector?.clientHeight;
       // ! Set the result height to be the difference between the colors element and the documents height.
       // ! Then substract the padding.
-      const resHeight = (colorsHeight ? documentHeight - colorsHeight : 0) - 40;
+      let resHeight = 0;
+      // ! If vertical mobile.
+      if (!(documentWidth < 900 && documentHeight < 500)) {
+        resHeight = (colorsHeight ? documentHeight - colorsHeight : 0) - 40;
+      } else {
+        // ! If horizontal mobile.
+        if (selector) {
+          selector.style.alignContent = 'center';
+          selector.style.margin = '0px';
+          selector.style.height = '100%';
+        }
+        resHeight = 0;
+      }
       // ! Set the result.
       this.height$.next(resHeight);
     }
